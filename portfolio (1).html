@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Portfolio – Arnav Sharma</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#fff;--off:#f5f8ff;--blue:#1a4dff;
+  --cyan:#00c8d7;--navy:#0a1a3c;--mid:#5a7ab0;--light:#d6e8ff;
+}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,serif;background:#fff;color:#0a1a3c;overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.2rem 3rem;
+  background:rgba(255,255,255,0.95);
+  border-bottom:1px solid #d6e8ff;
+}
+.nav-logo{font-size:1.3rem;font-weight:bold;color:#0a1a3c;letter-spacing:-0.02em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.8rem;font-weight:bold;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;color:#5a7ab0}
+.nav-links a:hover{color:#1a4dff}
+
+/* HERO */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:7rem 3rem 4rem;background:#fff;
+}
+.hero-inner{
+  max-width:1100px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+}
+.hero-left{}
+.hero-tag{
+  font-size:0.75rem;font-weight:bold;letter-spacing:0.14em;
+  text-transform:uppercase;color:#00c8d7;
+  display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;
+  font-family:Arial,sans-serif;
+}
+.hero-tag::before{content:'';display:block;width:28px;height:2px;background:#00c8d7}
+
+/* HERO CARD */
+.hero-card{
+  background:#f5f8ff;border:1px solid #d6e8ff;
+  border-radius:20px;padding:2rem;
+  border-top:4px solid #1a4dff;
+}
+.card-name{font-size:1.6rem;font-weight:bold;color:#0a1a3c;margin-bottom:0.3rem}
+.card-sub{font-size:0.82rem;color:#5a7ab0;margin-bottom:1.5rem;font-family:Arial,sans-serif}
+.skill-pills{display:flex;flex-wrap:wrap;gap:0.5rem}
+.pill{
+  padding:0.3rem 0.85rem;border-radius:20px;
+  font-size:0.75rem;font-weight:bold;font-family:Arial,sans-serif;
+  background:#d6e8ff;color:#1a4dff;
+}
+.pill.c{background:#e0fafc;color:#009aaa}
+
+/* SECTIONS */
+section{padding:5rem 3rem}
+.wrap{max-width:1100px;margin:0 auto}
+.label{
+  font-size:0.72rem;font-weight:bold;letter-spacing:0.14em;
+  text-transform:uppercase;color:#00c8d7;font-family:Arial,sans-serif;
+  display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;
+}
+.label::before{content:'';display:block;width:18px;height:2px;background:#00c8d7}
+h2{font-size:2.2rem;color:#0a1a3c;margin-bottom:2.5rem;letter-spacing:-0.02em}
+
+/* ABOUT */
+#about{background:#f5f8ff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.about-text p{font-size:0.97rem;line-height:1.85;color:#5a7ab0;margin-bottom:1rem;font-family:Arial,sans-serif}
+.facts{display:flex;flex-direction:column;gap:0.8rem}
+.fact{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0.9rem 1.2rem;border-radius:12px;
+  background:#fff;border:1px solid #d6e8ff;
+  font-family:Arial,sans-serif;
+}
+.fk{font-size:0.75rem;color:#5a7ab0;font-weight:bold;text-transform:uppercase;letter-spacing:0.04em}
+.fv{font-size:0.88rem;color:#0a1a3c;font-weight:bold}
+
+/* EDUCATION */
+.edu-list{display:flex;flex-direction:column}
+.edu-item{display:flex;gap:2rem;padding:1.4rem 0;border-bottom:1px solid #d6e8ff}
+.edu-year{font-size:0.72rem;font-weight:bold;letter-spacing:0.06em;text-transform:uppercase;color:#5a7ab0;min-width:90px;padding-top:3px;font-family:Arial,sans-serif}
+.edu-info h3{font-size:1rem;font-weight:bold;color:#0a1a3c;margin-bottom:0.2rem}
+.edu-info p{font-size:0.85rem;color:#5a7ab0;font-family:Arial,sans-serif}
+
+/* SKILLS */
+#skills{background:#f5f8ff}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.skill-card{
+  background:#fff;border:1px solid #d6e8ff;border-radius:16px;padding:1.4rem;
+  transition:transform 0.2s;
+}
+.skill-card:hover{transform:translateY(-3px)}
+.sicon{font-size:1.4rem;margin-bottom:0.8rem}
+.skill-card h3{font-size:0.78rem;font-weight:bold;letter-spacing:0.06em;text-transform:uppercase;color:#0a1a3c;margin-bottom:0.7rem;font-family:Arial,sans-serif}
+.pw{display:flex;flex-wrap:wrap;gap:0.4rem}
+
+/* PROJECT */
+.proj-card{
+  background:#0a1a3c;border-radius:20px;padding:2.5rem;
+  position:relative;overflow:hidden;
+}
+.proj-card::after{content:'';position:absolute;bottom:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(0,200,215,0.1)}
+.ptag{font-size:0.72rem;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#00c8d7;margin-bottom:0.7rem;font-family:Arial,sans-serif}
+.ptitle{font-size:2rem;color:#fff;margin-bottom:1.5rem;line-height:1.2}
+.ptech{display:flex;gap:0.5rem;flex-wrap:wrap}
+.ptech span{
+  padding:0.3rem 0.8rem;border-radius:20px;
+  font-size:0.72rem;font-weight:bold;font-family:Arial,sans-serif;
+  background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.75);
+  border:1px solid rgba(255,255,255,0.15);
+}
+
+/* HOBBIES */
+#hobbies{background:#f5f8ff}
+.hobbies-row{display:flex;gap:1rem;flex-wrap:wrap}
+.chip{
+  display:flex;align-items:center;gap:0.5rem;
+  padding:0.8rem 1.4rem;border-radius:50px;
+  background:#fff;border:1px solid #d6e8ff;
+  font-size:0.9rem;color:#0a1a3c;font-family:Arial,sans-serif;
+  transition:border-color 0.2s,color 0.2s,transform 0.2s;cursor:default;
+}
+.chip:hover{border-color:#1a4dff;color:#1a4dff;transform:translateY(-2px)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.contact-text p{font-size:0.97rem;line-height:1.8;color:#5a7ab0;margin-bottom:1.5rem;font-family:Arial,sans-serif}
+.btn{
+  padding:0.8rem 2rem;border-radius:40px;
+  background:#1a4dff;color:#fff;
+  font-size:0.88rem;font-weight:bold;font-family:Arial,sans-serif;
+  text-decoration:none;display:inline-block;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,77,255,0.3)}
+.clinks{display:flex;flex-direction:column;gap:0.8rem}
+.clink{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem 1.2rem;border-radius:12px;
+  background:#f5f8ff;border:1px solid #d6e8ff;
+  text-decoration:none;color:#0a1a3c;
+  transition:border-color 0.2s,transform 0.2s;
+}
+.clink:hover{border-color:#1a4dff;transform:translateX(4px)}
+.cicon{width:32px;height:32px;border-radius:8px;background:#d6e8ff;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.ctext{display:flex;flex-direction:column;gap:2px}
+.clabel{font-size:0.75rem;color:#5a7ab0;font-family:Arial,sans-serif}
+.cval{font-size:0.88rem;font-weight:bold;color:#0a1a3c;font-family:Arial,sans-serif}
+
+footer{text-align:center;padding:2rem;font-size:0.78rem;color:#5a7ab0;border-top:1px solid #d6e8ff;font-family:Arial,sans-serif}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  section{padding:3.5rem 1.5rem}
+  #hero{padding:6rem 1.5rem 3rem}
+  .hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Portfolio.</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">Available for Internships</div>
+    </div>
+    <div class="hero-card">
+      <div class="card-name">Arnav Sharma</div>
+      <div class="card-sub">Computer Science Student &middot; UPES &middot; 2024&ndash;2028</div>
+      <div class="skill-pills">
+        <span class="pill">HTML/CSS</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill c">Java</span>
+        <span class="pill">Python</span>
+        <span class="pill c">Figma</span>
+        <span class="pill">SQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="label">About me</div>
+    <h2>A quick introduction</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a first-year CSE student at UPES, Dehradun. I like building things that live on the internet — from simple static pages to more interactive web apps. I care about clean code and clean design in equal measure.</p>
+        <p>Outside of screens, I play chess and badminton, dabble in graphic design, and spend a lot of time thinking about cinema. I'm always looking to learn something new and work on meaningful projects.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><span class="fk">Degree</span><span class="fv">B.Tech CSE</span></div>
+        <div class="fact"><span class="fk">University</span><span class="fv">UPES, Dehradun</span></div>
+        <div class="fact"><span class="fk">Batch</span><span class="fv">2024&ndash;2028</span></div>
+        <div class="fact"><span class="fk">Email</span><span class="fv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94e7fcf5e6f9f5f5e6faf5e2a6a4a4a2d4f3f9f5fdf8baf7fbf9">[email&#160;protected]</a></span></div>
+        <div class="fact"><span class="fk">Course</span><span class="fv">Web Dev Bootcamp &middot; Udemy</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="label">Background</div>
+    <h2>Education</h2>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-year">2024&ndash;2028</div>
+        <div class="edu-info"><h3>B.Tech &mdash; Computer Science &amp; Engineering</h3><p>UPES, Dehradun</p></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2024</div>
+        <div class="edu-info"><h3>Higher Secondary (Class XII)</h3><p>St. Joseph School</p></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2022</div>
+        <div class="edu-info"><h3>Senior Secondary (Class X)</h3><p>Modern School</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="label">What I know</div>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Web &amp; Frontend</h3>
+        <div class="pw"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>Programming</h3>
+        <div class="pw"><span class="pill c">Java</span><span class="pill c">Python</span><span class="pill c">C</span><span class="pill c">SQL</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>Creative Tools</h3>
+        <div class="pw"><span class="pill">Figma</span><span class="pill">Inkscape</span><span class="pill">Blender</span><span class="pill">Canva</span><span class="pill">Premiere Pro</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>Soft Skills</h3>
+        <div class="pw"><span class="pill">Teamwork</span><span class="pill">Problem Solving</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hobbies">
+  <div class="wrap">
+    <div class="label">Outside code</div>
+    <h2>Hobbies &amp; Interests</h2>
+    <div class="hobbies-row">
+      <div class="chip">♟️ Chess</div>
+      <div class="chip">🏸 Badminton</div>
+      <div class="chip">🎨 Graphic Design</div>
+      <div class="chip">🎬 Cinema</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="label">Say hello</div>
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-text">
+        <p>I'm open to internship opportunities, collaborations, and interesting conversations. Drop me a message &mdash; I try to reply to everything.</p>
+        <a href="/cdn-cgi/l/email-protection#f7849f96859a969685999681c5c7c7c1b7909a969e9bd994989a" class="btn">Send an Email</a>
+      </div>
+      <div class="clinks">
+        <a href="/cdn-cgi/l/email-protection#c0b3a8a1b2ada1a1b2aea1b6f2f0f0f680a7ada1a9aceea3afad" class="clink">
+          <div class="cicon">✉️</div>
+          <div class="ctext"><span class="clabel">Email</span><span class="cval"><span class="__cf_email__" data-cfemail="097a61687b6468687b67687f3b39393f496e64686065276a6664">[email&#160;protected]</span></span></div>
+        </a>
+        <a href="https://www.linkedin.com/in/arnav-sharma-0b2621285" target="_blank" class="clink">
+          <div class="cicon">💼</div>
+          <div class="ctext"><span class="clabel">LinkedIn</span><span class="cval">arnav-sharma-0b2621285</span></div>
+        </a>
+        <a href="https://github.com/arnavsharmau"
